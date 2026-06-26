@@ -1,0 +1,17 @@
+Upload:
+curl -X POST "http://127.0.0.1:5001/kirana/api/apa/v2/ap_upload_audio" \
+-H "Authorization: f3c2e1b7a9d6f8e3b2c1d4e7f5a0b9c3d8e2a1f6b7c4d9e" \
+-F "file=@/tmp/ICONLIC/ap_260619-1100-budi.wav" \
+-F "json_data={\"normalize\":\"NO\",\"channel\":\"STEREO\"}"
+
+Analyze:
+curl -X POST "http://127.0.0.1:5001/kirana/api/apa/v2/ap_analyze" \
+-H "Content-Type: application/json" \
+-H "Authorization: f3c2e1b7a9d6f8e3b2c1d4e7f5a0b9c3d8e2a1f6b7c4d9e" \
+-d "{\"conversation_id\":\"2606191100\",\"type\":\"AUDIO\",\"data\":\"ap_260619-1100-budi.wav\"}"
+
+Result:
+curl -X POST "http://127.0.0.1:5001/kirana/api/apa/v2/ap_analyze_status" \
+-H "Content-Type: application/json" \
+-H "Authorization: f3c2e1b7a9d6f8e3b2c1d4e7f5a0b9c3d8e2a1f6b7c4d9e" \
+-d "{\"conversation_id\":\"2606191100\",\"filename\":\"ap_260619-1100-budi.wav\",\"analyze_result_type\":\"ASUMMARY\"}"
